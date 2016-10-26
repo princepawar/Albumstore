@@ -1,0 +1,21 @@
+<h1><%= @album.name %></h1>
+<%= link_to 'New image', new_album_image_path %>
+<table>
+
+  <% @images.each do |image| %>
+    <tr>
+      <td>
+        <%= link_to album_image_path(image.album, image) do %>
+          <%= image_tag image.avatar.url(:medium) %>
+        <% end %>
+      </td>
+<!--       <td><%#= link_to 'Show', album_path(album) %></td>
+      <td><%#= link_to 'Edit', edit_album_path(album) %></td>
+      <td><%#= link_to 'Destroy', album_path(album),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+ -->
+    </tr>
+    <br>
+  <% end %>
+</table>

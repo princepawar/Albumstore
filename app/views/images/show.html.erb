@@ -1,0 +1,4 @@
+<h1>Image  Page</h1>
+<%#= link_to 'Edit', edit_album_image_path(@album, @image) %>
+<%= image_tag @image.avatar.url(:medium)  %>
+<%= render 'comments/comment' %>

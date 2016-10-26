@@ -1,0 +1,5 @@
+<%= simple_form_for [@album, @image] do |f| %>
+  <%= f.input :avatar, as: :file %>
+  <%= f.submit 'upload image'%>
+<% end %>
+<%= render partial:  'comments/form', locals: { image: @image } %>

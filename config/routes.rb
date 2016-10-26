@@ -1,11 +1,35 @@
 Rails.application.routes.draw do
 
+require 'sidekiq/web'
 
+  # resources :students, only: [:new, :create] do
+  #   get 'welcome_email', on: :collection
+  # end
+
+  # resources :students
+  resources :students, except: [:show, :destroy] do
+    collection do
+      get 'topper'
+      get 'medium'
+      get 'failure'
+      get 'send_email'
+    end
+  end
   # get 'static_pages/home'
   devise_for :users
   root  'static_pages#home'
 
-  resources :albums
+  resources :albums do
+    resources :images do
+    end
+  end
+    resources :images do
+      resources :comments
+    end
+    # ...
+   mount Sidekiq::Web, at: '/sidekiq'
+  # end
+  #resources :comments
   get 'home'      => 'static_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

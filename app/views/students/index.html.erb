@@ -1,0 +1,76 @@
+<% if stage == 0 %>
+<h1>Students listing</h1>
+  <%= link_to 'load topper_student', topper_students_path, class:"btn btn-success" %>
+  <%= link_to 'load medium_student', medium_students_path, class:"btn btn-success" %>
+  <%= link_to 'load failure_student', failure_students_path, class:"btn btn-success" %>
+<% elsif stage == 1 %>
+  <table>
+  <h1> Topper Students listing</h1>
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Math</td>
+      <td>Science</td>
+      <td>English</td>
+      <td>Percentage</td>
+    </tr>
+      <% @topper_student.each do |student| %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.email %></td>
+          <td><%= student.math %></td>
+          <td><%= student.science %></td>
+          <td><%= student.english %></td>
+          <td><%= student.percentage %> %</td>
+        </tr>
+      <% end %>
+  </table>
+  <%= link_to 'Send Email', send_email_students_path, class:'btn btn-success' %>
+<% elsif stage == 2 %>
+<h1> Average Students listing</h1>
+    <table>
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Math</td>
+      <td>Science</td>
+      <td>English</td>
+      <td>Percentage</td>
+    </tr>
+      <% @average_student.each do |student| %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.email %></td>
+          <td><%= student.math %></td>
+          <td><%= student.science %></td>
+          <td><%= student.english %></td>
+          <td><%= student.percentage %> %</td>
+        </tr>
+      <% end %>
+  </table>
+  <%= link_to 'Send Email', send_email_students_path, class:'btn btn-success' %>
+<% elsif stage == 3 %>
+<h1> Failure Students listing</h1>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Math</td>
+      <td>Science</td>
+      <td>English</td>
+      <td>Percentage</td>
+    </tr>
+      <% @failure_student.each do |student| %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.email %></td>
+          <td><%= student.math %></td>
+          <td><%= student.science %></td>
+          <td><%= student.english %></td>
+          <td><%= student.percentage %> %</td>
+        </tr>
+      <% end %>
+
+  </table>
+<%= link_to 'Send Email', send_email_students_path, class:'btn btn-success' %>
+<% end %>

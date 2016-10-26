@@ -1,0 +1,6 @@
+<%= simple_form_for [@image, Comment.new] do |f| %>
+  <div class="form-group">
+    <%= f.input :body, label:"Comment", as: :text, class:"form-control", placeholder: "Add a comment" %>
+  </div>
+  <%= f.button :submit, class:"btn btn-primary" %>
+<% end %>

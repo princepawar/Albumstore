@@ -1,0 +1,7 @@
+<h3>Comments</h3>
+<% @image.comments.each do |comment| %>
+  <div class="well" >
+  <%= comment.body %> <br>Posted <%= time_ago_in_words(comment.created_at) %> ago.
+    <%= render partial:  'comments/form', locals: { image: comment } %>
+  </div>
+<% end %>

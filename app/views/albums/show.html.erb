@@ -1,2 +1,9 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<h1><%= @album.name %></h1>
+
+<p><%= link_to 'Upload new photo', new_album_image_path(@album) %></p>
+
+<% @album.images.each do |image| %>
+  <%= link_to [@album, image] do %>
+    <%= image_tag image.file.url(:thumb) %>
+  <% end %>
+<% end %>

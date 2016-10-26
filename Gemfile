@@ -10,6 +10,15 @@ gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass',       '3.2.0.0'
+gem "paperclip", "~> 5.0.0"
+gem 'simple_form'
+gem 'faker', '~> 1.6', '>= 1.6.6'
+gem 'pry', '~> 0.10.4'
+gem 'populator', '~> 1.0'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+gem 'mailcatcher', '~> 0.6.5'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
