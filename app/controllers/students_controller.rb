@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
 
   def send_email
 
-    StudentsWorker.perform_async(1)
+    StudentsWorker.perform_async
 
     # Student.find_each(batch_size: 10) do |student|
     #    StudentMailer.welcome_email(student).deliver
