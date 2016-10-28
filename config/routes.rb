@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
 require 'sidekiq/web'
 
   # resources :students, only: [:new, :create] do
@@ -15,6 +17,14 @@ require 'sidekiq/web'
       get 'send_email'
     end
   end
+  # for json request
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      #resources :articles
+    end
+  end
+
+  resources :owners
   # get 'static_pages/home'
   devise_for :users
   root  'static_pages#home'
